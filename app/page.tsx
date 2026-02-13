@@ -1,3 +1,4 @@
+import Activities from "./components/Activities";
 import Banner from "./components/Banner";
 import StayActive from "./components/StayActive";
 
@@ -6,6 +7,7 @@ export default function Home() {
     <main className="pl-[8%] pr-[8%] flex flex-col gap-16">
       <Banner />
       <StayActive />
+      <Activities />
     </main>
   );
 }

@@ -54,8 +54,8 @@ export default function StayActive() {
         </div>
       </div>
       <p className="text-gray-600">
-        Chiffres de Santé publique France et de l'Organisation Mondiale de la
-        Santé
+        Chiffres de Santé publique France et de l{"'"}Organisation Mondiale de
+        la Santé
       </p>
     </section>
   );
