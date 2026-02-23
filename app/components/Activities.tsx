@@ -65,7 +65,7 @@ export default function Activities() {
   return (
     <section
       ref={sectionRef}
-      className="min-h-screen flex flex-col md:flex-row w-full gap-4 p-4 md:p-8"
+      className="min-h-screen flex flex-col md:flex-row w-full gap-4"
     >
       {activities.map((activity, index) => {
         const isActive = activeIndex === index;

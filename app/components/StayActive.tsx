@@ -45,7 +45,7 @@ export default function StayActive() {
 
         {/* Right Part */}
         <div className="flex flex-col gap-4 items-center p-6  rounded-lg md:col-span-2 md:row-span-3 md:col-start-5 md:row-start-3">
-          <span className="text-pink-800 text-6xl md:text-8xl font-bold">
+          <span className="text-[#E56B70] text-6xl md:text-8xl font-bold">
             100%
           </span>
           <p className="text-center text-sm md:text-base">
