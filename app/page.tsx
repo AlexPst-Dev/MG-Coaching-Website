@@ -1,5 +1,6 @@
 import Activities from "./components/Activities";
 import Banner from "./components/Banner";
+import ContactForm from "./components/ContactForm";
 import Offers from "./components/Offers";
 import StayActive from "./components/StayActive";
 
@@ -10,6 +11,7 @@ export default function Home() {
       <StayActive />
       <Activities />
       <Offers />
+      <ContactForm />
     </main>
   );
 }
