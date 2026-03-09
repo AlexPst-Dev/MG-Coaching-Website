@@ -65,6 +65,7 @@ export default function Activities() {
   return (
     <section
       ref={sectionRef}
+      id="activities"
       className="min-h-screen flex flex-col md:flex-row w-full gap-4"
     >
       {activities.map((activity, index) => {

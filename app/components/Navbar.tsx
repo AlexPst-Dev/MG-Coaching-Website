@@ -1,5 +1,4 @@
 "use client";
-
 import Image from "next/image";
 import { useState } from "react";
 
@@ -9,6 +8,22 @@ export default function Navbar() {
   const toggleMenu = () => {
     setIsOpen(!isOpen);
   };
+
+  const scrollToSection = (sectionId: string) => {
+    const element = document.getElementById(sectionId);
+    if (element) {
+      element.scrollIntoView({ behavior: "smooth", block: "start" });
+    }
+    // Close mobile menu after clicking
+    setIsOpen(false);
+  };
+
+  const menuItems = [
+    { label: "RESTER ACTIF", id: "stay-active" },
+    { label: "PROPOSITIONS", id: "activities" },
+    { label: "OFFRES", id: "offers" },
+    { label: "CONTACT", id: "contact" },
+  ];
 
   return (
     <nav className="pl-[4%] md:pl-[8%] pr-[4%] md:pr-[8%] mt-8 flex items-center justify-between md:gap-8">
@@ -39,21 +54,15 @@ export default function Navbar() {
 
       {/* Desktop Menu */}
       <ul className="hidden md:flex items-center gap-8 font-medium text-xl">
-        <li className="cursor-pointer hover:text-fuchsia-900 transition-colors">
-          RESTER ACTIF
-        </li>
-        <li className="cursor-pointer hover:text-fuchsia-900 transition-colors">
-          PROPOSITIONS
-        </li>
-        <li className="cursor-pointer hover:text-fuchsia-900 transition-colors">
-          AVIS
-        </li>
-        <li className="cursor-pointer hover:text-fuchsia-900 transition-colors">
-          OFFRES
-        </li>
-        <li className="cursor-pointer hover:text-fuchsia-900 transition-colors">
-          CONTACT
-        </li>
+        {menuItems.map((item) => (
+          <li
+            key={item.id}
+            className="cursor-pointer hover:text-fuchsia-900 transition-colors"
+            onClick={() => scrollToSection(item.id)}
+          >
+            {item.label}
+          </li>
+        ))}
       </ul>
 
       {/* Mobile Menu */}
@@ -62,36 +71,15 @@ export default function Navbar() {
           isOpen ? "translate-x-0" : "translate-x-full"
         }`}
       >
-        <li
-          className="cursor-pointer hover:text-fuchsia-900 transition-colors border-b pb-4"
-          onClick={toggleMenu}
-        >
-          RESTER ACTIF
-        </li>
-        <li
-          className="cursor-pointer hover:text-fuchsia-900 transition-colors border-b pb-4"
-          onClick={toggleMenu}
-        >
-          PROPOSITIONS
-        </li>
-        <li
-          className="cursor-pointer hover:text-fuchsia-900 transition-colors border-b pb-4"
-          onClick={toggleMenu}
-        >
-          AVIS
-        </li>
-        <li
-          className="cursor-pointer hover:text-fuchsia-900 transition-colors border-b pb-4"
-          onClick={toggleMenu}
-        >
-          OFFRES
-        </li>
-        <li
-          className="cursor-pointer hover:text-fuchsia-900 transition-colors border-b pb-4"
-          onClick={toggleMenu}
-        >
-          CONTACT
-        </li>
+        {menuItems.map((item) => (
+          <li
+            key={item.id}
+            className="cursor-pointer hover:text-fuchsia-900 transition-colors border-b pb-4"
+            onClick={() => scrollToSection(item.id)}
+          >
+            {item.label}
+          </li>
+        ))}
       </ul>
 
       {/* Overlay */}

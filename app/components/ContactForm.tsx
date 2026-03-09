@@ -1,7 +1,12 @@
 export default function ContactForm() {
   return (
-    <section className="min-h-screen w-full flex flex-col gap-8 md:gap-16">
-      <h2>DES QUESTIONS ? CONTACTEZ-MOI DIRECTEMENT</h2>
+    <section
+      id="contact"
+      className="min-h-screen w-full flex flex-col gap-8 md:gap-16"
+    >
+      <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold">
+        DES QUESTIONS ? CONTACTEZ-MOI DIRECTEMENT
+      </h2>
       <div className="flex flex-col gap-8 md:gap-0 md:flex-row md:justify-between">
         <p className="md:flex-1/2 md:pr-8">
           N’hesitez pas a me proposer des idees de séance ou de discipline que

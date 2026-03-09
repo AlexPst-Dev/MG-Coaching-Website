@@ -102,7 +102,7 @@ function OfferItem(data: OfferType) {
 
 export default function Offers() {
   return (
-    <section className="min-h-screen flex flex-col gap-8 md:gap-16">
+    <section id="offers" className="min-h-screen flex flex-col gap-8 md:gap-16">
       <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold">MES OFFRES</h2>
       <div className="flex md:flex-row md:justify-between md:items-center flex-col gap-4 md:h-[80vh]">
         {offers.map((offer: OfferType, index) => {

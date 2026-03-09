@@ -1,6 +1,9 @@
 export default function StayActive() {
   return (
-    <section className="flex flex-col justify-center min-h-screen">
+    <section
+      id="stay-active"
+      className="flex flex-col justify-center min-h-screen"
+    >
       <div className="min-h-[80vh] flex flex-col md:grid md:grid-cols-6 md:grid-rows-6 gap-4 md:gap-4">
         {/* Title */}
         <div className="md:col-span-4">
