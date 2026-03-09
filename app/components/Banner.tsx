@@ -2,7 +2,7 @@ import Image from "next/image";
 
 export default function Banner() {
   return (
-    <div className="flex flex-col gap-8 md:gap-16 justify-center align-middle font-sans min-h-[80vh] md:min-h-screen">
+    <div className="flex flex-col gap-8 md:gap-16 justify-center align-middle font-sans min-h-[80vh] md:min-h-screen mt-[8vh] md:mt-0">
       <div className="flex flex-col md:flex-row justify-between w-full items-left md:items-center md:gap-0 gap-8">
         <Image
           src="/img/img-coach.jpg"

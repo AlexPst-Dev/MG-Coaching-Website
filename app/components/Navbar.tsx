@@ -26,7 +26,7 @@ export default function Navbar() {
   ];
 
   return (
-    <nav className="pl-[4%] md:pl-[8%] pr-[4%] md:pr-[8%] mt-8 flex items-center justify-between md:gap-8">
+    <nav className="z-50 p-[4%] md:px-[8%] md:py-[1%] flex items-center justify-between md:gap-8 fixed w-full bg-white shadow-2xs">
       <Image src="/logo.svg" alt="logo" width={50} height={50} />
 
       {/* Hamburger Button - Mobile Only */}
