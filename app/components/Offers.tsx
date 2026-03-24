@@ -32,8 +32,9 @@ const offers: OfferType[] = [
 
 function OfferItem(data: OfferType) {
   return (
-    <div
+    <article
       className={`flex flex-col items-center ${data.isMainOffer ? "bg-[#E56B70]" : "bg-white"} border border-black rounded-4xl p-8 gap-16 md:justify-center`}
+      aria-label={`Offre formule ${data.title}, ${data.price} € par mois`}
     >
       <h3 className="text-3xl md:text-4xl font-bold">{data.title}</h3>
       <p>{data.description}</p>
@@ -64,6 +65,7 @@ function OfferItem(data: OfferType) {
         })}
       </ul>
       <button
+        type="button"
         className={`
           px-8 py-3 rounded-4xl text-lg font-semibold
           transition-all duration-300 hover:scale-105
@@ -96,19 +98,28 @@ function OfferItem(data: OfferType) {
           />
         </svg>
       </button>
-    </div>
+    </article>
   );
 }
 
 export default function Offers() {
   return (
-    <section id="offers" className="min-h-screen flex flex-col gap-8 md:gap-16">
-      <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold">MES OFFRES</h2>
+    <section
+      id="offers"
+      className="min-h-screen flex flex-col gap-8 md:gap-16"
+      aria-labelledby="offers-heading"
+    >
+      <h2
+        id="offers-heading"
+        className="text-3xl md:text-4xl lg:text-5xl font-bold"
+      >
+        MES OFFRES
+      </h2>
       <div className="flex md:flex-row md:justify-between md:items-center flex-col gap-4 md:h-[80vh]">
-        {offers.map((offer: OfferType, index) => {
+        {offers.map((offer: OfferType) => {
           return (
             <div
-              key={index}
+              key={offer.title}
               className={`md:w-[32%] ${offer.isMainOffer ? "md:h-[90%]" : "md:h-[80%]"}`}
             >
               <OfferItem

@@ -3,11 +3,15 @@ export default function StayActive() {
     <section
       id="stay-active"
       className="flex flex-col justify-center min-h-screen"
+      aria-labelledby="stay-active-heading"
     >
       <div className="min-h-[80vh] flex flex-col md:grid md:grid-cols-6 md:grid-rows-6 gap-4 md:gap-4">
         {/* Title */}
         <div className="md:col-span-4">
-          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold">
+          <h2
+            id="stay-active-heading"
+            className="text-3xl md:text-4xl lg:text-5xl font-bold"
+          >
             L{"'"}IMPORTANCE DE RESTER{" "}
             <span className="text-fuchsia-900">ACTIF</span>
           </h2>

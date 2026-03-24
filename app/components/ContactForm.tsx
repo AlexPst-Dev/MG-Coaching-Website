@@ -3,8 +3,12 @@ export default function ContactForm() {
     <section
       id="contact"
       className="min-h-screen w-full flex flex-col gap-8 md:gap-16"
+      aria-labelledby="contact-heading"
     >
-      <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold">
+      <h2
+        id="contact-heading"
+        className="text-3xl md:text-4xl lg:text-5xl font-bold"
+      >
         DES QUESTIONS ? CONTACTEZ-MOI DIRECTEMENT
       </h2>
       <div className="flex flex-col gap-8 md:gap-0 md:flex-row md:justify-between">
@@ -13,14 +17,18 @@ export default function ContactForm() {
           vous aimeriez aborder.
         </p>
         <form
-          action="submit"
           className="flex flex-col gap-8 md:gap-4 md:flex-1/2 border border-black rounded-4xl p-4 md:p-8"
+          method="post"
+          action="#"
         >
           <div className="flex flex-col md:flex-row gap-8 md:gap-4">
             <div className="flex flex-col gap-1 md:flex-1/2">
               <label htmlFor="lastname">Nom</label>
               <input
+                id="lastname"
+                name="lastname"
                 type="text"
+                autoComplete="family-name"
                 placeholder="DOE"
                 className="border border-black rounded-2xl px-4 py-2"
               />
@@ -28,7 +36,10 @@ export default function ContactForm() {
             <div className="flex flex-col gap-1 md:flex-1/2">
               <label htmlFor="firstname">Prénom</label>
               <input
+                id="firstname"
+                name="firstname"
                 type="text"
+                autoComplete="given-name"
                 placeholder="John"
                 className="border border-black rounded-2xl px-4 py-2"
               />
@@ -37,7 +48,10 @@ export default function ContactForm() {
           <div className="flex flex-col gap-1">
             <label htmlFor="email">Email</label>
             <input
+              id="email"
+              name="email"
               type="email"
+              autoComplete="email"
               placeholder="john.doe@mail.com"
               className="border border-black rounded-2xl px-4 py-2"
             />
@@ -45,14 +59,17 @@ export default function ContactForm() {
           <div className="flex flex-col gap-1">
             <label htmlFor="msg">Message</label>
             <textarea
+              id="msg"
               name="msg"
               rows={4}
               cols={50}
+              autoComplete="off"
               placeholder="Ecrivez votre message ici..."
               className="border border-black rounded-2xl px-4 py-2 min-h-16"
             />
           </div>
           <button
+            type="submit"
             className={`
               px-8 py-3 rounded-4xl text-lg font-semibold
               transition-all duration-300 hover:scale-105

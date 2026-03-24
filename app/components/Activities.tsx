@@ -1,30 +1,43 @@
 "use client";
 
+import Image from "next/image";
 import { useState, useEffect, useRef } from "react";
+
+type ActivityCard = {
+  title: string;
+  description: string;
+  image: string;
+  imageAlt: string;
+};
 
 export default function Activities() {
   const [activeIndex, setActiveIndex] = useState(0);
   const [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
-  const sectionRef = useRef<HTMLDivElement>(null);
-  const cardRefs = useRef<(HTMLDivElement | null)[]>([]);
+  const cardRefs = useRef<(HTMLElement | null)[]>([]);
 
-  const activities = [
+  const activities: ActivityCard[] = [
     {
       title: "Séance à domicile",
       description: "Profitez de séances personnalisées directement chez vous",
       image: "/img/activities/activity-athome.jpg",
+      imageAlt:
+        "Coach accompagnant un client senior lors d'exercices doux dans un salon lumineux à domicile",
     },
     {
       title: "Sport adapté",
       description:
         "Refaites tous les sports que vous n'osez plus faire avec des règles adaptées",
       image: "/img/activities/activity-adapted.jpg",
+      imageAlt:
+        "Groupe de personnes en plein air pratiquant un sport adapté et sécurisé avec matériel léger",
     },
     {
       title: "Marche",
       description:
         "Groupe de marche du même niveau encadré avec séance de yoga en forêt / lac etc...",
       image: "/img/activities/activity-walking.jpg",
+      imageAlt:
+        "Randonneurs marchant sur un chemin ombragé près d'un lac en Bretagne",
     },
   ];
 
@@ -64,8 +77,8 @@ export default function Activities() {
 
   return (
     <section
-      ref={sectionRef}
       id="activities"
+      aria-label="Propositions d'activités et de services"
       className="min-h-screen flex flex-col md:flex-row w-full gap-4"
     >
       {activities.map((activity, index) => {
@@ -73,13 +86,13 @@ export default function Activities() {
         const isHovered = hoveredIndex === index;
 
         return (
-          <div
-            key={index}
+          <article
+            key={activity.title}
             ref={(el) => {
               cardRefs.current[index] = el;
             }}
             className={`
-              flex flex-col justify-end rounded-2xl p-4 bg-cover bg-center relative
+              relative flex flex-col justify-end rounded-2xl p-4 overflow-hidden
               transition-all duration-500 ease-in-out
               ${
                 // Mobile: height animation
@@ -95,11 +108,17 @@ export default function Activities() {
               }
               md:cursor-pointer md:min-h-[70vh]
             `}
-            style={{ backgroundImage: `url('${activity.image}')` }}
             onMouseEnter={() => setHoveredIndex(index)}
             onMouseLeave={() => setHoveredIndex(null)}
           >
-            <div className="absolute inset-0 bg-black/40 rounded-2xl transition-all duration-500"></div>
+            <Image
+              src={activity.image}
+              alt={activity.imageAlt}
+              fill
+              className="object-cover z-0"
+              sizes="(max-width: 768px) 100vw, 33vw"
+            />
+            <div className="absolute inset-0 bg-black/40 rounded-2xl transition-all duration-500 z-1 pointer-events-none" />
 
             <h3 className="text-white text-2xl md:text-3xl relative z-10 font-bold mb-2">
               {activity.title}
@@ -117,7 +136,7 @@ export default function Activities() {
             >
               {activity.description}
             </p>
-          </div>
+          </article>
         );
       })}
     </section>
