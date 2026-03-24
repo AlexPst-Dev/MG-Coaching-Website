@@ -1,5 +1,23 @@
 This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
 
+## Docker deployment (Dokploy)
+
+This repository is dockerized for production deployment with a final image stage named `production`.
+
+- Build image:
+
+```bash
+docker build --target production -t mg-coaching:latest .
+```
+
+- Run container locally:
+
+```bash
+docker run --rm -p 3000:3000 --name mg-coaching mg-coaching:latest
+```
+
+- Open: [http://localhost:3000](http://localhost:3000)
+
 ## Getting Started
 
 First, run the development server:
